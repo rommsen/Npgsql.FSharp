@@ -148,6 +148,7 @@ let bookAttributes =
     |> Map.add "weight" "500g"
 
 defaultConnection
+|> Sql.connect
 |> Sql.query "INSERT INTO \"books\" (id,title,attrs) VALUES (@bookId,@title,@attributes)"
 |> Sql.parameters
     [ "bookId", Sql.Value 20
